@@ -1,0 +1,25 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-2"
+}
+
+#instance EC2
+
+resource "aws_instance" "server_app" {
+    ami = "ami-0a695f0d95cefc163"
+    instance_type = "t2.micro"
+    key_name = "server-app"
+
+    tags = {
+      "Name" = "ExampleAppServerInstance"
+    }
+}
