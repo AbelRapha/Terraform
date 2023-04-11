@@ -1,0 +1,10 @@
+- hosts: terraform-ansible
+  tasks:
+  - name: instalando node, npm
+    apt:
+      pkg:
+      - nodejs
+      - npm
+      update_cache: yes
+    become: yes
+      
